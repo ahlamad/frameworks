@@ -1,0 +1,32 @@
+:root {
+    --background-color-primary: hsl(212 76% 95%);
+	--background-color-accent: hsl(156 10% 30%);
+	--color-text-primary: hsl(225 100% 98%);
+    --color-text-secondary: hsl(212 76% 10%);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background-color-primary: hsl(212 76% 10%);
+		--background-color-accent: hsl(156 10% 30%);
+		--color-text-primary: hsl(225 100% 98%);
+        --color-text-secondary: hsl(225 100% 98%);
+	}
+}
+
+body {
+	margin: 0;
+	font-family: system-ui, sans-serif;
+	background-color: var(--background-color-primary);
+	color: var(--color-text-primary);
+}
+
+.button {
+	padding: 10px 16px;
+    font-size: 12px;
+	display: inline-block;
+	border-radius: 12px;
+	background-color: var(--background-color-accent);
+	color: #ffffff;
+	text-decoration: none;
+}

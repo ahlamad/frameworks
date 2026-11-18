@@ -1,20 +1,22 @@
 ---
-title: 'Hello, world'
+title: 'Prologg'
 layout: 'layouts/home.html'
 
-intro:
-  eyebrow: 'Digital Marketing is our'
-  main: 'Bread & Butter'
-  summary: 'Let us help you create the perfect campaign with our multi-faceted team of talented creatives.'
-  buttonText: 'See our work'
-  buttonUrl: '/work'
-  image: '/images/bg/toast.jpg'
-  imageAlt: 'Buttered toasted white bread'
-
-primaryCTA:
-  title: 'This is an agency that doesn’t actually exist'
-  summary: 'This is the project site you build when you take the “Learn Eleventy” course so it is all made up about a pretend context. You will learn a lot about Eleventy by building this site though. Take the course today!'
-  buttonText: "It's free!"
-  buttonUrl: 'https://learneleventy.dev'
+navigation:
+  button: "Vraag demo aan"
+  openAlt: "Open menu"
+  closeAlt: "Sluit menu"
+  logoAlt: "Prologg, ga naar hoofdpagina"
+  links:
+    - content: "Waarom Prologg"
+      href: "#waarom-prologg"
+    - content: "Casus"
+      href: "#hoe-het-werkt"
+    - content: "Doe mee"
+      href: "#doe-mee"
+    - content: "Waarde Levering"
+      href: "#waarde-levering"
+    - content: "Partners"
+      href: "#partners"
 ---
 This is pretty _rad_, right?
