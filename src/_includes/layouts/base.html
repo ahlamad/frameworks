@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>{{ title }}</title>
+		<title>{{ title }} | Prologg for Legal</title>
 		<link rel="stylesheet" href="/css/global.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
+		<link rel="stylesheet" href="/css/footer.css" />
 		<script defer src="/scripts/nav.js"></script>
 	</head>
 	<body>
 		{% include "partials/nav.html" %}
-        <main tabindex="-1" id="main-content">{% block content %}{% endblock %}</main>	</body>
+        <main tabindex="-1" id="main-content">{% block content %}{% endblock %}</main>	
+		{% include "partials/footer.html" %}
+	</body>
 </html>

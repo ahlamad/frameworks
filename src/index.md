@@ -18,5 +18,10 @@ navigation:
       href: "#waarde-levering"
     - content: "Partners"
       href: "#partners"
+
+footer:
+  brandTitle: "Prologg for Legal"
+  descriptionFirst: "Digitale Bewijskracht &"
+  descriptionSecond: "Forensische Keten van Bewijs"
 ---
 This is pretty _rad_, right?
