@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-* {
-    /* background-color: #2acc6345; */
-}
-
 @font-face {
     font-family: 'Inter';
     src: url('/fonts/Inter-VariableFont_opsz,wght.ttf') format("truetype");
@@ -156,6 +152,48 @@ button {
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+
+.visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.underline-link {
+    text-decoration: none;
+    color: var(--color-text-primary);
+
+    &::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background-color: currentColor;
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+        transform: scaleX(1);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        transition: scale 0.1s ease-in-out;
+
+        &::after {
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            scale: 1.02;
+        }
+    }
 }
 
 @keyframes land {

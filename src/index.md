@@ -1,6 +1,7 @@
 ---
-title: 'Prologg'
-layout: 'layouts/home.html'
+layout: layouts/home.html
+title: Home
+lang: nl
 
 navigation:
   button: "Vraag demo aan"
@@ -34,8 +35,7 @@ hero:
       variant: "hero-secondary"
 
 footer:
-  brandTitle: "Prologg for Legal"
+  title: "Prologg for Legal"
   descriptionFirst: "Digitale Bewijskracht &"
   descriptionSecond: "Forensische Keten van Bewijs"
 ---
-This is pretty _rad_, right?

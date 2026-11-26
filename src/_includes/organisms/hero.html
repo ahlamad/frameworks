@@ -1,37 +1,25 @@
+{% from "atoms/button.html" import button %}
+
 <section class="hero">
     <div class="hero-wrapper">
         <div class="hero-info-wrapper">
-            <h1>{{hero.title}}</h1>
+            <h1>{{ hero.title }}</h1>
             <div>
-                <p>
-                    {{hero.description}}
-                </p>
+                <p>{{ hero.description }}</p>
                 <div class="button-wrapper">
-                    {% for button in hero.buttons %}
-                        <button
-                            href={{button.href}}
-                            class={{button.variant}}
-                        >
-                            {{button.content}}
-                        </button>
+                    {% for item in hero.buttons %}
+                        {{ button(item.href, item.variant, item.content) }}
                     {% endfor %}
                 </div>
             </div>
         </div>
         <picture>
-            <source
-                srcset="{{ hero.imageAvif }}"
-                type="image/avif"
-                sizes="(max-width: 600px) 400px, 700px"
-            />
-            <source
-                srcset="{{ hero.imageWebp }}"
-                type="image/webp"
-                sizes="(max-width: 600px) 400px, 700px"
-            />
+            <source srcset="{{ hero.imageAvif }}" type="image/avif" sizes="(max-width: 600px) 400px, 700px" />
+            <source srcset="{{ hero.imageWebp }}" type="image/webp" sizes="(max-width: 600px) 400px, 700px" />
             <img
                 src="{{ hero.imageWebpFallback }}"
                 alt="person logging using prologg webapp"
+                fetchpriority="high"
             />
         </picture>
     </div>

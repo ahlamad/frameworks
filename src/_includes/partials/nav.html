@@ -1,34 +1,48 @@
-<header class="nav-bar visible" id="nav-bar">
-    <div class="logo">
+{% from "atoms/button.html" import button %}
+{% from "atoms/language-toggle.html" import languageToggle %}
+
+<header class="header visible" data-header>
+    <div class="nav-bar">
         <a class="logo-link" href="/">
             <picture>
-                <source srcset="/images/icons/full-logo-white.svg" media="(prefers-color-scheme: dark)">
-                <img src="/images/icons/full-logo.svg" alt="{{ navigation.logoAlt }}" width="100" height="70" fetchpriority="high">
+                <source srcset="/images/icons/full-logo-white.svg" media="(prefers-color-scheme: dark)" />
+                <img src="/images/icons/full-logo.svg" alt="{{ navigation.logoAlt }}" width="100" height="70" />
             </picture>
         </a>
 
         <div class="mobile-nav">
-            <a class="button nav" href="mailto:frank.kloos@fonetic.studio">{{ navigation.button }}</a>
-            <button popovertarget="mobilepopover" class="hamburger" type="button">
-                <img src="/images/icons/hamburger.svg" alt="{{ navigation.openAlt }}" width="50" height="50">
+            {{ button("mailto:frank.kloos@fonetic.studio", "nav", navigation.button) }}
+            <button command="show-modal" commandfor="mobile-dialog" class="hamburger" type="button">
+                <img src="/images/icons/hamburger.svg" alt="{{ navigation.openAlt }}" width="50" height="50" />
             </button>
         </div>
 
-        <nav class="main-nav" id="mobilepopover" popover>
+        <dialog class="mobile-dialog" id="mobile-dialog">
             <div class="mobile-menu-top">
-                <button type="button" class="close-button" popovertarget="mobilepopover" popovertargetaction="hide" autofocus>
-                    <img src="/images/icons/close-icon.svg" alt="{{ navigation.closeAlt }}" width="25" height="25">
+                <button type="button" class="close-button" commandfor="mobile-dialog" command="close" autofocus>
+                    <img src="/images/icons/close-icon.svg" alt="{{ navigation.closeAlt }}" width="25" height="25" loading="lazy" />
                 </button>
             </div>
 
+            <nav class="links-nav">
+                {% for link in navigation.links %}
+                    <a href="{{ link.href }}" class="nav-link underline-link">{{ link.content }}</a>
+                {% endfor %}
+
+                {{ languageToggle(lang) }}
+
+                {{ button("mailto:frank.kloos@fonetic.studio", "nav", navigation.button) }}
+            </nav>
+        </dialog>
+
+        <nav class="desktop-nav">
             {% for link in navigation.links %}
-                <a href="{{ link.href }}" class="nav-link">
-                    {{ link.content }}
-                    <div class="underline-deco"></div>
-                </a>
+                <a href="{{ link.href }}" class="nav-link underline-link">{{ link.content }}</a>
             {% endfor %}
 
-            <a class="button nav" href="mailto:frank.kloos@fonetic.studio">{{ navigation.button }}</a>
+            {{ languageToggle(lang) }}
+
+            {{ button("mailto:frank.kloos@fonetic.studio", "nav", navigation.button) }}
         </nav>
     </div>
 </header>

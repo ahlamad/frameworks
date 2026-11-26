@@ -1,0 +1,45 @@
+.language-toggle input {
+    appearance: none;
+    height: max-content;
+    background-color: var(--white);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &::before {
+        content: "NL";
+        color: var(--text-color-primary);
+        transition: all 0.3s ease;
+        margin: 0.25rem;
+        padding: 0.25rem;
+        border-radius: 6px;
+    }
+
+    &::after {
+        content: "EN";
+        color: var(--background-color-dark);
+        background-color: var(--background-color-primary);
+        transition: all 0.3s ease;
+        margin: 0.25rem;
+        padding: 0.25rem;
+        border-radius: 6px;
+        font-weight: bold;
+    }
+
+    &:checked {
+        &::before {
+            background-color: var(--background-color-primary);
+            color: var(--color-text-primary);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        &::after {
+            background-color: var(--white);
+            color: var(--text-color-primary);
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+    }
+}

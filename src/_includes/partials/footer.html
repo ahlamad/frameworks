@@ -1,41 +1,58 @@
+{% from "atoms/button.html" import button %}
+
 <footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="/" class="footer-logo">
-        <picture>
-          <source srcset="/images/icons/full-logo-white.svg" media="(prefers-color-scheme: dark)" />
-          <img src="/images/icons/full-logo.svg" alt="Prologg, ga naar de hoofdpagina"
-               width="100" height="70" loading="lazy" fetchpriority="low" />
-        </picture>
-      </a>
-      <h2 class="brand-title">{{ footer.brandTitle }}</h2>
-      <p class="brand-description">
-        <span>{{ footer.descriptionFirst }}</span>
-        <span>{{ footer.descriptionSecond }}</span>
-      </p>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="/" class="footer-logo">
+                <picture>
+                    <source srcset="/images/icons/full-logo-white.svg" media="(prefers-color-scheme: dark)" />
+                    <img
+                        src="/images/icons/full-logo.svg"
+                        alt="Prologg logo"
+                        width="100"
+                        height="70"
+                        fetchpriority="low"
+                        loading="lazy"
+                    />
+                </picture>
+            </a>
+
+            <h2 class="brand-title">{{ footer.title }}</h2>
+
+            <p class="brand-description">
+                <span>{{ footer.descriptionFirst }}</span>
+                <span>{{ footer.descriptionSecond }}</span>
+            </p>
+        </div>
+
+        <nav class="footer-navigation">
+            <h2 class="footer-heading">Navigatie</h2>
+
+            <ul>
+                {% for link in navigation.links %}
+                    <li>
+                        <a href="{{ link.href }}" class="footer-link underline-link">{{ link.content }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+
+        <div class="footer-contact">
+            <h2 class="footer-heading">Contact</h2>
+
+            <address>
+                <a href="mailto:frank.kloos@fonetic.studio" class="footer-link underline-link">
+                    frank.kloos@fonetic.studio
+                </a>
+            </address>
+
+            <div class="footer-demo">
+                {{ button("mailto:frank.kloos@fonetic.studio", "nav", navigation.button) }}
+            </div>
+        </div>
     </div>
 
-    <nav class="footer-navigation">
-      <h2 class="footer-heading">Navigatie</h2>
-      <ul>
-        {% for link in navigation.links %}
-          <li><a href="{{ link.href }}" class="footer-link">{{ link.content }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
-
-    <div class="footer-contact">
-      <h2 class="footer-heading">Contact</h2>
-      <address>
-        <a href="mailto:frank.kloos@fonetic.studio" class="footer-link">frank.kloos@fonetic.studio</a>
-      </address>
-      <div class="footer-demo">
-        <a href="mailto:frank.kloos@fonetic.studio" class="button nav">{{ navigation.button }}</a>
-      </div>
+    <div class="footer-bottom">
+        <p>&copy; Prologg for Legal</p>
     </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; {{ footer.brandTitle }}</p>
-  </div>
 </footer>

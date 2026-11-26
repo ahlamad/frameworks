@@ -1,0 +1,6 @@
+{% macro languageToggle(lang) %}
+<label class="language-toggle">
+    <span class="visually-hidden">Switch language</span>
+    <input type="checkbox" {% if lang == "nl" %}checked{% endif %} />
+</label>
+{% endmacro %}
