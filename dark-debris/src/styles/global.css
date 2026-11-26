@@ -4,14 +4,26 @@
     box-sizing: border-box;
 }
 
-* {
-    /* background-color: #2acc6345; */
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Regular.woff2') format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Inter';
-    src: url('/fonts/Inter-VariableFont_opsz,wght.ttf') format("truetype");
-    font-weight: 100 900;
+    src: url('/fonts/Inter-Bold.woff2') format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Extra-Bold.woff2') format("woff2");
+    font-weight: 800;
     font-style: normal;
     font-display: swap;
 }
@@ -185,11 +197,6 @@ button {
 @media (width >= 1024px) {
     [id] {
         scroll-margin-top: 8rem;
-    }
-
-    body:has(#mobilepopover:popover-open) main,
-    body:has(#mobilepopover:popover-open) footer {
-        visibility: visible;
     }
 }
 
