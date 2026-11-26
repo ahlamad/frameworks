@@ -6,6 +6,15 @@ import hamburgerIcon from "../../assets/hamburger.svg";
 import Button from "../atoms/Button.astro";
 import LanguageToggle from "../atoms/LanguageToggle.astro";
 
+interface Props {
+    button: string;
+    links: { content: string; href: string }[];
+    openAlt: string;
+    closeAlt: string;
+    logoAlt: string;
+    lang?: string;
+}
+
 const { button, links = [], openAlt, closeAlt, logoAlt, lang = "nl" } = Astro.props;
 ---
 
@@ -40,7 +49,7 @@ const { button, links = [], openAlt, closeAlt, logoAlt, lang = "nl" } = Astro.pr
                     command="close"
                     autofocus
                 >
-                    <img src={closeIcon.src} alt={closeAlt} width="25" height="25" />
+                    <img src={closeIcon.src} alt={closeAlt} width="25" height="25" loading="lazy"/>
                 </button>
             </div>
 
@@ -148,7 +157,37 @@ const { button, links = [], openAlt, closeAlt, logoAlt, lang = "nl" } = Astro.pr
         .nav-link {
             text-decoration: none;
             color: var(--color-text-primary);
-            transition: 0.1s ease-in-out;
+
+            &::after {
+                content: "";
+                display: block;
+                height: 1px;
+                background-color: currentColor;
+                transform: scaleX(0);
+                transform-origin: left;
+            }
+
+            &:hover::after {
+                transform: scaleX(1);
+            }
+
+            @media (prefers-reduced-motion: no-preference) {
+                transition: scale 0.1s ease-in-out;
+
+                &::after {
+                    transition: transform 0.3s ease;
+                }
+
+                &:hover {
+                    scale: 1.02;
+                }
+            }
+
+            &:focus-visible {
+                outline-offset: 6px;
+                outline: 2px solid var(--text-color-primary);
+                border-radius: 5px;
+            }
         }
     }
 
@@ -194,37 +233,6 @@ const { button, links = [], openAlt, closeAlt, logoAlt, lang = "nl" } = Astro.pr
         flex-direction: column;
         align-items: center;
         gap: 30px;
-    }
-
-    .nav-link {
-        transition: 0.1s ease-in-out;
-
-        .underline-deco {
-            width: 0%;
-            height: 1px;
-            background-color: var(--text-color-primary);
-            transition: all 0.3s ease;
-        }
-
-        &:hover {
-            text-decoration: underline;
-            scale: 1.02;
-
-            @media (prefers-reduced-motion: no-preference) {
-                text-decoration: unset;
-
-                .underline-deco {
-                    width: 100%;
-                    transition: all 0.3s ease;
-                }
-            }
-        }
-
-        &:focus-visible {
-            outline-offset: 6px;
-            outline: 2px solid var(--text-color-primary);
-            border-radius: 5px;
-        }
     }
 
     .desktop-nav {
