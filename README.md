@@ -6,7 +6,7 @@ Each version contains the same page: navigation, hero, one content section and f
 
 ## Live demo's
 
-| Framework | Live site | Branch |
+| Framework | Live site
 |---|---|---|
 | Astro | [prologg-astro.netlify.app](https://prologg-astro.netlify.app/)
 | 11ty | [prologg-11ty.netlify.app](https://prologg-11ty.netlify.app/)
