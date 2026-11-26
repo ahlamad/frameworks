@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Hero from "../components/organisms/Hero.astro";
 import { content } from "../lib/content.js";
 
 const c = content.nl;
 ---
 
 <Layout lang="nl">
-    <main>
-    </main>
+    <Hero {...c.hero} />
 </Layout>
