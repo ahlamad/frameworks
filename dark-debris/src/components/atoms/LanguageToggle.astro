@@ -1,0 +1,67 @@
+---
+const { lang = "nl" } = Astro.props;
+---
+
+<label>
+    <span class="visually-hidden">Switch language</span>
+    <input type="checkbox" checked={lang === "nl"} />
+</label>
+
+<style>
+    .visually-hidden {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    input {
+        appearance: none;
+        height: max-content;
+        background-color: var(--white);
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        &::before {
+            content: "NL";
+            color: var(--text-color-primary);
+            transition: all 0.3s ease;
+            margin: 0.25rem;
+            padding: 0.25rem;
+            border-radius: 6px;
+        }
+
+        &::after {
+            content: "EN";
+            color: var(--background-color-dark);
+            background-color: var(--background-color-primary);
+            transition: all 0.3s ease;
+            margin: 0.25rem;
+            padding: 0.25rem;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        &:checked {
+            &::before {
+                background-color: var(--background-color-primary);
+                color: var(--color-text-primary);
+                transition: all 0.3s ease;
+                font-weight: bold;
+            }
+
+            &::after {
+                background-color: var(--white);
+                color: var(--text-color-primary);
+                transition: all 0.3s ease;
+                font-weight: 400;
+            }
+        }
+    }
+</style>
