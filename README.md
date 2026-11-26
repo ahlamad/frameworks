@@ -4,6 +4,14 @@ This repository contains three versions of the same Prologg web page, each built
 
 Each version contains the same page: navigation, hero, one content section and footer, with the same Prologg styling and content.
 
+## Live demo's
+
+| Framework | Live site | Branch |
+|---|---|---|
+| Astro | [prologg-astro.netlify.app](https://prologg-astro.netlify.app/)
+| 11ty | [prologg-11ty.netlify.app](https://prologg-11ty.netlify.app)
+| React | [prologg-svelte.netlify.app](https://prologg-svelte.netlify.app)
+
 ## Projects
 
 Each framework lives in its own branch. The `main` branch contains this overview and the results.
