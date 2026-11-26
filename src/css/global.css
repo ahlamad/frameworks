@@ -1,32 +1,208 @@
+*,*::after,*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+* {
+    /* background-color: #2acc6345; */
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-VariableFont_opsz,wght.ttf') format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Instrument Sans';
+    src: url('/fonts/InstrumentSans-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    src: url(/fonts/IBMPlexMono-Regular.woff2);
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    src: url(/fonts/IBMPlexMono-Bold.woff2);
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
+    color-scheme: light dark;
+
+    /* Colors (niet direct gebruiken in componenten) */
+    --color-navy-darkest: hsl(212 76% 5%);
+    --color-navy-dark: hsl(212 76% 10%);
+    --color-blue-light: hsl(213 78% 79%);
+    --color-blue-lightest: hsl(213 80% 94%);
+    --color-coral: hsl(9 100% 73%);
+    --color-terracotta: hsl(6 61% 41%);
+    --color-green: hsl(156 10% 30%);
+    --color-green-light: hsl(156 10% 75%);
+    --white: #fff;
+
+    /* Background colors */
     --background-color-primary: hsl(212 76% 95%);
-	--background-color-accent: hsl(156 10% 30%);
-	--color-text-primary: hsl(225 100% 98%);
-    --color-text-secondary: hsl(212 76% 10%);
+    --background-color-secondary: hsl(225 100% 99%);
+    --color-background-accent: var(--color-navy-darkest);
+    --color-background-dark: hsl(0 0% 0%);
+    --color-background-card: var(--white);
+    --color-background-card-alt: var(--background-color-primary);
+    --color-background-button: var(--color-green);
+    --color-background-button-alt: var(--background-color-primary);
+    --color-background-button-light: var(--white);
+
+    --text-color-primary: var(--color-navy-darkest);
+    --text-color-secondary: hsl(225 100% 98%);
+    --text-color-accent: hsl(240 6% 29%);
+    --text-color-button: var(--color-navy-darkest);
+    --text-color-big: var(--color-navy-darkest);
+
+    --card-text: var(--text-color-primary);
+    --alert-color: var(--color-terracotta);
+
+    /* FONTS */
+    --font-heading: 'Instrument Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+    --filter-shadow-card: drop-shadow(0px 0px 15px #d2d2d29f);
+    --border-usp: 1px solid color-mix(in srgb, var(--text-color-primary) 25%, transparent);
+
+    --max-width: 1200px;
+
+    /* SPACINGS */
+    --space-xxl: 4rem;
+    --space-xl: 2rem;
+    --space-lg: 1.5rem;
+    --space-md: 1rem;
+    --space-sm: 0.5rem;
+    --space-xs: 0.25rem;
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--background-color-primary: hsl(212 76% 10%);
-		--background-color-accent: hsl(156 10% 30%);
-		--color-text-primary: hsl(225 100% 98%);
-        --color-text-secondary: hsl(225 100% 98%);
-	}
+    :root {
+        --background-color-primary: var(--color-navy-dark);
+        --background-color-secondary: var(--color-navy-darkest);
+        --color-background-accent: var(--color-blue-light);
+        --color-background-card: var(--color-navy-darkest);
+        --color-background-card-alt: var(--color-navy-dark);
+        --color-background-button: var(--color-green-light);
+        --color-background-button-alt: var(--white);
+
+        --text-color-secondary: var(--color-navy-darkest);
+        --text-color-accent: var(--color-blue-lightest);
+        --text-color-big: var(--color-blue-lightest);
+        --color-text-primary: var(--white);
+        --color-text-secondary: var(--color-blue-lightest);
+        --alert-color: var(--color-coral);
+
+        --filter-shadow-card: drop-shadow(0px 0px 15px #2020209f);
+        --border-usp: 1px solid color-mix(in srgb, var(--white) 25%, transparent);
+
+        img {
+            opacity: 80%;
+        }
+    }
 }
 
 body {
-	margin: 0;
-	font-family: system-ui, sans-serif;
-	background-color: var(--background-color-primary);
-	color: var(--color-text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--background-color-primary);
+    color: var(--color-text-primary);
 }
 
-.button {
-	padding: 10px 16px;
-    font-size: 12px;
-	display: inline-block;
-	border-radius: 12px;
-	background-color: var(--background-color-accent);
-	color: #ffffff;
-	text-decoration: none;
+main {
+    display: grid;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, hgroup span {
+    font-family: var(--font-heading);
+}
+
+h2 {
+    margin-block: 0.5rem;
+    font-size: clamp(1.5rem, 1.2955rem + 0.9091vw, 2rem);
+    line-height: 0.95;
+    color: var(--color-text-primary);
+}
+
+hgroup span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    color: var(--alert-color);
+    font-weight: 500;
+}
+
+section {
+    padding: var(--space-lg) var(--space-md);
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+@keyframes land {
+    from {
+        opacity: 0;
+        transform: translateY(1.5rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+[id] {
+    scroll-margin-top: 5rem;
+
+    &:nth-of-type(2) {
+        scroll-margin-top: 6rem;
+
+        @media (width >= 768px) {
+            scroll-margin-top: 25rem;
+        }
+    }
+}
+
+@media (width >= 1024px) {
+    [id] {
+        scroll-margin-top: 8rem;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    /* Animate the direct children of the :target section (URL hash), so the section background stays still. */
+    :target > * {
+        animation: land 700ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+        animation-delay: 250ms;
+    }
+
+    /* Stagger: each child starts 80ms later */
+    :target > :nth-child(2) { animation-delay: 330ms; }
+    :target > :nth-child(3) { animation-delay: 410ms; }
+    :target > :nth-child(4) { animation-delay: 490ms; }
 }
